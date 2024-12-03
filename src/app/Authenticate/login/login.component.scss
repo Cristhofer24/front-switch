@@ -5,20 +5,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #020202, #0f89da); /* Fondo degradado */
+  background: linear-gradient(135deg, #484a53, #014069); /* Fondo degradado */
   font-family: 'Roboto', sans-serif;
   padding: 1rem;
 }
 
-/* Título principal de la aplicación */
-h2.form-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #f1faee;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
 
 /* Contenedor del logo */
 .logo-container {
@@ -30,7 +21,7 @@ h2.form-title {
   max-width: 180px; /* Aumento el tamaño máximo de la imagen */
   max-height: 180px;
   /* Elimina la propiedad border-radius para no hacer la imagen redonda */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px #014069;
   transition: transform 0.3s;
 }
 
@@ -40,13 +31,13 @@ h2.form-title {
 
 /* Estilos del formulario de inicio de sesión */
 .login-form {
-  background-color: #ffffff;
+  background-color: #babfdd;
   padding: 2.5rem;
-  border-radius: 0 15px 15px 0; /* Solo bordes redondeados a la derecha */
-  box-shadow: 5px 8px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 0 15px 75px 0; /* Solo bordes redondeados a la derecha */
+  box-shadow: 5px 8px 30px rgb(30, 30, 31);
   width: 100%;
   max-width: 400px;
-  border-left: 5px solid #457b9d; /* Borde decorativo a la izquierda */
+  border-left: 8px solid #257180; /* Borde decorativo a la izquierda */
   position: relative;
   overflow: hidden;
 }
@@ -65,10 +56,10 @@ h2.form-title {
 /* Título del formulario "Inicio de sesión" */
 .login-form h1.form-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  color: #06377b;
+  color: #031530;
 }
 
 /* Estilos para los grupos de formulario */
@@ -76,18 +67,19 @@ h2.form-title {
   margin-bottom: 1.5rem;
 }
 
+/* Estilos para las etiquetas de los campos de formulario (usuario, contraseña) */
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #555;
+  color: #111131;
 }
 
 /* Estilos de los campos de entrada (inputs) */
 .form-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid #363636;
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -100,31 +92,7 @@ h2.form-title {
   box-shadow: 0 0 10px rgba(69, 123, 157, 0.4);
 }
 
-/* Estilos del botón de envío */
-.submit-btn {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #457b9d;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-}
 
-/* Efectos al pasar el mouse sobre el botón */
-.submit-btn:hover {
-  background-color: #1d3557;
-  box-shadow: 0 5px 15px rgba(29, 53, 87, 0.3);
-  transform: translateY(-2px);
-}
-
-/* Efectos cuando se hace clic en el botón */
-.submit-btn:active {
-  transform: translateY(0);
-}
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
@@ -142,3 +110,101 @@ h2.form-title {
       max-height: 120px;
   }
 }
+
+
+
+
+
+
+/* Estilos para el botón de inicio de sesión */
+.animated-button {
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 0 2px #021963;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: rgb(13, 17, 7);
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: rgb(40, 80, 87);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #000000;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #050505;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+
+
