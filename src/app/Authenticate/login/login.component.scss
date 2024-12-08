@@ -1,210 +1,225 @@
-/* Contenedor para centrar el contenido */
-.login-container {
+/* General */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Contenedor principal */
+.container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: 100vh;
+  gap: 1rem;
+}
+
+/* Lado izquierdo */
+.left-side {
+  flex: 1;
+  background-color: #0a0a0a;
+  color: white;
+  display: flex;
+  flex-direction: column; /* Alineación vertical de los elementos */
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #484a53, #014069); /* Fondo degradado */
-  font-family: 'Roboto', sans-serif;
-  padding: 1rem;
+  text-align: center;
+  border-radius: 0 65px 65px 0;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  padding: 3rem; /* Espaciado interno */
 }
 
-
-/* Contenedor del logo */
-.logo-container {
-  margin-bottom: 1.5rem;
+.left-side .welcome-message h1 {
+  font-size: 5rem; /* Tamaño del texto principal */
+  margin-bottom: 2rem; /* Espacio entre el título y la imagen */
+  font-family: 'Lora', serif;
 }
 
-/* Estilos para el logo */
-.logo {
-  max-width: 180px; /* Aumento el tamaño máximo de la imagen */
-  max-height: 180px;
-  /* Elimina la propiedad border-radius para no hacer la imagen redonda */
-  box-shadow: 0 4px 8px #014069;
-  transition: transform 0.3s;
+.left-side .logo-container img {
+  max-width: 60%; /* Reduce el tamaño máximo de la imagen */
+  height: auto; /* Mantiene las proporciones */
+  margin: 0 auto; /* Centra la imagen */
 }
 
-.logo:hover {
-  transform: scale(1.1); /* Efecto de zoom sutil al pasar el mouse */
+/* Lado derecho */
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfc;
+  padding: 2rem;
 }
 
-/* Estilos del formulario de inicio de sesión */
-.login-form {
-  background-color: #babfdd;
-  padding: 2.5rem;
-  border-radius: 0 15px 75px 0; /* Solo bordes redondeados a la derecha */
-  box-shadow: 5px 8px 30px rgb(30, 30, 31);
+/* Contenedor del formulario */
+.login-container {
   width: 100%;
   max-width: 400px;
-  border-left: 8px solid #257180; /* Borde decorativo a la izquierda */
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
   position: relative;
-  overflow: hidden;
-}
-
-.login-form::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom right, rgba(69, 123, 157, 0.1), rgba(29, 53, 87, 0.05));
-  pointer-events: none;
-}
-
-/* Título del formulario "Inicio de sesión" */
-.login-form h1.form-title {
   text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  color: #031530;
 }
 
-/* Estilos para los grupos de formulario */
-.form-group {
+/* Icono del perfil */
+.login-icon {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(47, 44, 235, 0.993), 0 12px 12px rgb(0, 0, 0);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #2575FC;
+}
+
+/* Formulario de inicio de sesión */
+.login-form {
+  margin-top: 3rem;
+}
+
+.login-form h1.form-title {
+  font-size: 1.8rem;
   margin-bottom: 1.5rem;
+  color: #333;
 }
 
-/* Estilos para las etiquetas de los campos de formulario (usuario, contraseña) */
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #111131;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #555;
 }
 
-/* Estilos de los campos de entrada (inputs) */
 .form-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #363636;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: 0.3s;
 }
 
-/* Estilos al enfocar los campos de entrada */
 .form-group input:focus {
-  border-color: #457b9d;
+  border-color: #2575FC;
   outline: none;
-  box-shadow: 0 0 10px rgba(69, 123, 157, 0.4);
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
 }
 
-
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-  .login-form {
-      padding: 1.5rem;
-      border-radius: 0; /* Elimina los bordes redondeados en pantallas pequeñas */
-  }
-
-  .form-title {
-      font-size: 1.5rem;
-  }
-
-  .logo {
-      max-width: 120px; /* Reduce el tamaño del logo en pantallas pequeñas */
-      max-height: 120px;
-  }
-}
-
-
-
-
-
-
-/* Estilos para el botón de inicio de sesión */
+/* Botón */
 .animated-button {
-  text-align: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 16px 36px;
-  border: 4px solid;
-  border-color: transparent;
-  font-size: 16px;
-  background-color: inherit;
-  border-radius: 100px;
-  font-weight: 600;
-  color: rgb(0, 0, 0);
-  box-shadow: 0 0 0 2px #021963;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #031081;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button svg {
-  position: absolute;
-  width: 24px;
-  fill: rgb(13, 17, 7);
-  z-index: 9;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .arr-1 {
-  right: 16px;
-}
-
-.animated-button .arr-2 {
-  left: -25%;
-}
-
-.animated-button .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: rgb(40, 80, 87);
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .text {
-  position: relative;
-  z-index: 1;
-  transform: translateX(-12px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: 0.3s;
 }
 
 .animated-button:hover {
-  box-shadow: 0 0 0 12px transparent;
-  color: #000000;
-  border-radius: 12px;
+  background-color: #388994;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.animated-button:hover .arr-1 {
-  right: -25%;
+/* Enlace de "¿Olvidaste tu contraseña?" */
+.forgot-password {
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
-.animated-button:hover .arr-2 {
-  left: 16px;
+.forgot-password a {
+  color: #2575FC;
+  text-decoration: none;
 }
 
-.animated-button:hover .text {
-  transform: translateX(12px);
+.forgot-password a:hover {
+  text-decoration: underline;
 }
 
-.animated-button:hover svg {
-  fill: #050505;
+/* Responsivo para pantallas medianas */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-side {
+    height: 40%;
+    border-radius: 0;
+    padding: 2rem; /* Reduce el espaciado interno */
+    text-align: center;
+  }
+
+  .left-side .welcome-message h1 {
+    font-size: 2.5rem; /* Tamaño reducido del texto */
+  }
+
+  .left-side .logo-container img {
+    max-width: 70%; /* Ajusta el tamaño de la imagen */
+  }
+
+  .right-side {
+    height: 60%;
+    padding: 1.5rem;
+  }
 }
 
-.animated-button:active {
-  scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .left-side {
+    height: auto;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .left-side .welcome-message h1 {
+    font-size: 2rem; /* Tamaño reducido para pantallas pequeñas */
+    margin-bottom: 1.5rem;
+  }
+
+  .left-side .logo-container img {
+    max-width: 80%; /* Escala la imagen adecuadamente */
+  }
+
+  .right-side {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .login-container {
+    padding: 1rem;
+  }
+
+  .login-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .login-form h1.form-title {
+    font-size: 1.5rem;
+  }
+
+  .animated-button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
 }
-
-.animated-button:hover .circle {
-  width: 220px;
-  height: 220px;
-  opacity: 1;
-}
-
-
-

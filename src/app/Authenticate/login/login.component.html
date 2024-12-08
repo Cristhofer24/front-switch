@@ -1,39 +1,32 @@
-<div class="login-container">
-  <!-- Espacio para el logo -->
-  <div class="logo-container">
-    <img src="https://www.fit-bank.com/static/media/logo_fitbank_nuevo%20transparente.91f74b00173235b06fe0.png" alt="Logo de la Empresa" class="logo">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
+
+<div class="container">
+  <div class="left-side">
+    <div class="welcome-message">
+      <h1>Bienvenidos</h1>
+      <div class="logo-container">
+        <img src="assets/images/Fitswitch-remove.png" alt="Icono de inicio de sesión">
+      </div>
+    </div>
   </div>
-
-  <form class="login-form">
-    <h1 class="form-title">Login</h1>
-    <div class="form-group">
-      <label for="username">Usuario</label>
-      <input type="text" id="username"  name="username" required>
+  <div class="right-side">
+    <div class="login-container">
+      <img class="login-icon" src="assets/images/iconAnimacion.gif" alt="Icono del Login">
+      <form class="login-form">
+        <h1 class="form-title">Iniciar Sesión</h1>
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button routerLink="/dashboard" class="animated-button">
+          <span class="text">Ingresar</span>
+        </button>
+        <p class="forgot-password"><a href="#">¿Olvidaste tu contraseña?</a></p>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="password">Contraseña</label>
-      <input type="password" id="password"  name="password" required>
-    </div>
-
-     <!-- Boton de inicio de sesión en el login -->
-<button routerLink="/dashboard" class="animated-button">
-  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-  <span class="text">Ingresar</span>
-  <span class="circle"></span>
-  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-</button>
-     <!-- Fin del Boton de inicio de sesión en el login -->
-
- 
-  
-
-  </form>
+  </div>
 </div>
