@@ -5,8 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServicesService {
-   private ApiURL='http://localhost:8080/readAPI/message';
+  //URL DE LA API DE SPRING BOOT DE LA BASE FITSWITCH
+   private ApiURL='http://localhost:8080/api/iso8583';
   constructor(private http:HttpClient) { }
   getMessage(input: string): Observable<string> {
     return this.http.get<string>(`${this.ApiURL}/message`, {

@@ -1,0 +1,154 @@
+
+
+/* Tabla contenedor */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Estilo del encabezado */
+  thead {
+    background-color: #343a40;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  thead th {
+    padding: 12px 15px;
+    border: 1px solid #343a40;
+  }
+  
+  /* Filas del cuerpo */
+  tbody tr {
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f1f1f1; /* Alternar color para filas pares */
+  }
+  
+  /* Efecto hover */
+  tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Celdas del cuerpo */
+  tbody td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Resaltar texto en la celda */
+  tbody td:first-child {
+    font-weight: bold;
+    color: #495057;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+  
+    thead th,
+    tbody td {
+      padding: 8px 10px;
+    }
+  }
+
+
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+    pagination-controls {
+      ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+  
+        li {
+          margin: 0 5px;
+  
+          a {
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #ffffff;
+  
+            &:hover {
+              background-color: #ffffff;
+            }
+  
+            &.current {
+              background-color: #007bff;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ////Estilos de los titulos de busqueda por fechas
+  .message-titulo{
+    font-family: monospace;
+    font-size: 15px;
+    color: #ffffff;
+  }
+  ////Estilos de los inputs de busqueda por fechas
+  .input-date{
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    background-color: #3d40d1e0;
+    color: #ffffff;
+    height: 35px;
+    width: 200px;
+    outline: none;
+    font-size: 18px;
+    font-family: monospace;
+    transition: font-size 2s ease-in-out;
+  }
+
+
+
+  //////ESTILOS DE LA SEGUNDA OPCIÓN DE BUSQUEDA PARA LOS INPUTS DE FECHAS
+  .w3-label{
+    color: rgb(255, 255, 255);
+    font-family: monospace;
+    font-size: 18px;
+  }
+
+  .w3-input{
+    height: 40px;
+    width: 300px;
+    color: #ffffff;
+    border: 2px solid #000000;
+    background-color: #302f2f;
+    outline: none;
+    font-size: 15px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: font-size 2s ease-in-out;
+
+  }
+
+ 
+  .inputs_table{
+    font-size: 13px;
+    background-color: #6a6b6b;
+  }
+
+  .inputs_body{
+    font-size: 13px;
+  }
+
+  
