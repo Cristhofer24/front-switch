@@ -12,26 +12,33 @@ table {
   
   /* Estilo del encabezado */
   thead {
-    background-color: #343a40;
+    background-color: #44607e;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+    font-family: monospace;
+    font-size: 15px;
+    text-align: center;
   }
   
   thead th {
     padding: 12px 15px;
-    border: 1px solid #343a40;
+    border: 1px solid #ffffff;
   }
   
   /* Filas del cuerpo */
   tbody tr {
-    border-bottom: 1px solid #ddd;
-    background-color: #f9f9f9;
+    //border-bottom: 1px solid #d60a0a;
+    background-color: #a29ce0;
     transition: background-color 0.3s ease;
+    font-family: monospace;
+    font-size: 15px;
+    text-align: center;
+    
   }
   
   tbody tr:nth-child(even) {
-    background-color: #f1f1f1; /* Alternar color para filas pares */
+    background-color: #9c9696; /* Alternar color para filas pares */
   }
   
   /* Efecto hover */
@@ -42,14 +49,15 @@ table {
   /* Celdas del cuerpo */
   tbody td {
     padding: 10px 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
   }
   
-  /* Resaltar texto en la celda */
+  /* Resaltar texto de la primera celda de la tabla 
   tbody td:first-child {
     font-weight: bold;
-    color: #495057;
-  }
+    color: #000000;
+  }*/
+
   
   /* Responsivo */
   @media (max-width: 768px) {
@@ -64,39 +72,39 @@ table {
   }
 
 
-
-
-
-
+  
   .pagination-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+  }
   
-    pagination-controls {
-      ul {
-        display: flex;
-        list-style-type: none;
-        padding: 0;
+  .pagination {
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
   
-        li {
-          margin: 0 5px;
+      li {
+        margin: 0 5px;
   
-          a {
-            text-decoration: none;
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            color: #333;
+        a {
+          text-decoration: none;
+          padding: 10px 15px;
+          border: 1px solid #007bff;
+          border-radius: 20px;
+          color: #007bff;
+          background-color: #ffffff; 
+          transition: background-color 0.3s, color 0.3s;
   
-            &:hover {
-              background-color: #f0f0f0;
-            }
+          &:hover {
+            background-color: #007bff;
+            color: #ffffff;
+          }
   
-            &.current {
-              background-color: #007bff;
-              color: #fff;
-            }
+          &.current {
+            background-color: #0056b3;
+            color: #ffffff;
           }
         }
       }
@@ -104,3 +112,19 @@ table {
   }
   
   
+
+  //////ESTILOS DE LOS INPUTS DE BUSQUEDA Y FILTROS
+  /// Estilos de los inputs
+  .w3-input{
+    outline: none;
+    color: #070707;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+  }
+
+  ////Estilos de los labels 
+  .w3-label{
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+  }
