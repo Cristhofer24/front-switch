@@ -1,41 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IsoService } from '../../../Servicios/ISO/iso.service';
-import { Subscription } from 'rxjs';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { Component } from '@angular/core';
+import { FitSwitchAPIService } from '../../../Servicios/fit-switch-api.service';
+import { NgFor } from '@angular/common';
+//import { FitSwitch } from '../../../Interface/InterfaceFitSwitch';
+
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, NgxPaginationModule],
+  imports: [NgFor],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
-  isoData: any[] = [];
-  currentPage: number = 1; 
-  itemsPerPage: number = 10; 
-  private subscription: Subscription | null = null;
+export class MainComponent {
+  campos: FitSwitch[] = [];
+  constructor(private apiservice:FitSwitchAPIService){}
 
-  constructor(private isoService: IsoService) {}
 
   ngOnInit(): void {
-    this.loadIsoData();
-  }
-
-  loadIsoData(): void {
-    this.subscription = this.isoService.getIsoData().subscribe({
-      next: (data) => {
-        this.isoData = data;
+    // Llamar al servicio para obtener los usuarios
+    this.apiservice.listarCampos().subscribe(
+      (data) => {
+        this.campos = data; // Asigna los usuarios a la variable
+        console.log('Datos obtenidos:', this.campos); // Verifica si los datos llegan
       },
-      error: (err) => {
-        console.error('Error fetching ISO data:', err);
-      },
-    });
+      (error) => {
+        console.error('Error al obtener los datos:', error); // Muestra errores si ocurren
+      }
+    );
   }
-
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
-  }
-
 
 }
