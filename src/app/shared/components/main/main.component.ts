@@ -13,7 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class MainComponent implements OnInit {
   isoData: any[] = [];
   currentPage: number = 1; 
-  itemsPerPage: number = 20; 
+  itemsPerPage: number = 10; 
   private subscription: Subscription | null = null;
 
   constructor(private isoService: IsoService) {}

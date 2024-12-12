@@ -1,24 +1,6 @@
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-
-<div class="w3-row-padding">
-  <div class="w3-half">
-    <label class="w3-label">Fecha desde:</label>
-    <input class="w3-input w3-border" type="search" placeholder="Ingrese la fecha">
-  </div>
-  <div class="w3-half">
-    <label class="w3-label">Fecha hasta:</label>
-    <input class="w3-input w3-border" type="search" placeholder="Ingrese la fecha">
-  </div>
-</div>
-
-
 <table>
   <thead>
-    <tr class="inputs_table">
+    <tr>
       <th>Message Type</th>
       <th>Processing Code</th>
       <th>Merchant Type</th>
@@ -27,7 +9,7 @@
       <th>PAN</th>
     </tr>
   </thead>
-  <tbody class="inputs_body">
+  <tbody>
     <tr *ngFor="let row of isoData | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
       <td>{{ row.wiso000MessageType }}</td>
       <td>{{ row.wiso003ProcessingCode }}</td>
