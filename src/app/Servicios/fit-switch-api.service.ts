@@ -16,7 +16,7 @@ export class FitSwitchAPIService {
     return this.http.get<FitSwitch[]>(this.FitAPISwitch).pipe(
       // Manejo de errores para cualquier fallo en la solicitud HTTP
       catchError(error => {
-        console.error('Error al obtener los usuarios', error);
+        console.error('Error al obtener los Datos', error);
         // El mensaje de error personalizado es opcional, puedes ajustarlo según lo necesites
         return throwError(() => new Error('Error al obtener los usuarios desde el servidor'));
       })

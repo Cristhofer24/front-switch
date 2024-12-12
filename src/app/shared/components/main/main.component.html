@@ -36,23 +36,22 @@
           <div class="overflow-x-auto">
               <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                   <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                      <tr>
-                          <th scope="col" class="px-4 py-3">000_MESSAGE_TYPE</th>
-                          <th scope="col" class="px-4 py-3">003_PROCESSINGCODE</th>
-                          <th scope="col" class="px-4 py-3">Stock</th>
-                          <th scope="col" class="px-4 py-3">018_MERCHANTTYPE</th>
-                          <th scope="col" class="px-4 py-3">024_NETWORKID</th>
-                          <th scope="col" class="px-4 py-3">007_TRANSDATETIME</th>
+                      <tr *ngFor="let usu of campos">
+                          <th scope="col" class="px-4 py-3">{{usu.WISO_000_MESSAGE_TYPE}}</th>
+                          <th scope="col" class="px-4 py-3">{{usu.WISO_002_PAN}}</th>
+                          <th scope="col" class="px-4 py-3">{{usu.WISO_003_PROCESSINGCODE}}</th>
+                          <th scope="col" class="px-4 py-3">{{usu.WISO_007_TRANSDATETIME}}</th>
+                          <th scope="col" class="px-4 py-3">{{usu.WISO_018_MERCHANTTYPE}}</th>
+                          <th scope="col" class="px-4 py-3">{{usu.WISO_024_NETWORKID}}</th>
                           <th scope="col" class="px-4 py-3">002_PAN</th>
                           <th scope="col" class="px-4 py-3">Revenue</th>
                           <th scope="col" class="px-4 py-3">Last Update</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      <tr  class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
 
                           <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              1200
                           </th>
                           <td class="px-4 py-2">
                               <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
@@ -60,7 +59,6 @@
                           <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                               <div class="flex items-center">
                                   <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                                  95
                               </div>
                           </td>
                           <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
@@ -70,195 +68,8 @@
                           <td class="px-4 py-2">$3.2M</td>
                           <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
                       </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
 
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-orange-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
 
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-green-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-green-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-green-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
-                      <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-                        <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          1200
-                      </th>
-                      <td class="px-4 py-2">
-                          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">811010</span>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                          <div class="flex items-center">
-                              <div class="inline-block w-4 h-4 mr-2 bg-orange-700 rounded-full"></div>
-                              95
-                          </div>
-                      </td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0005</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">555777</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2018-07-09 02:45:06</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1803809563</td>
-                      <td class="px-4 py-2">$3.2M</td>
-                      <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
-                      </tr>
                   </tbody>
               </table>
           </div>
