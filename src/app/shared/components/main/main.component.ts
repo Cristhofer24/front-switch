@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 //import { FitSwitchAPIService } from '../../../Servicios/fit-switch-api.service';
 import { NgFor } from '@angular/common';
