@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 export class ServicesService {
   //URL DE LA API DE SPRING BOOT DE LA BASE FITSWITCH
-   private ApiURL='http://localhost:8080/api/iso8583';
+   private ApiURL='http://localhost:8081/api/iso-8583';
   constructor(private http:HttpClient) { }
   getMessage(input: string): Observable<string> {
     return this.http.get<string>(`${this.ApiURL}/message`, {
