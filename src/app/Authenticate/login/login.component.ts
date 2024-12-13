@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ServicesService } from '../../Servicios/services.service';
+import { ServicesService } from '../../Servicios/login/service.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -21,6 +21,5 @@ export default class LoginComponent {
       this.response = res;
     });
   }
-
-
+  
 }
