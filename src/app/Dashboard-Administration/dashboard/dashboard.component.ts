@@ -5,7 +5,7 @@ import { LayoutComponent } from "../../shared/components/layout/layout.component
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [SidebarComponent, LayoutComponent],
+  imports: [LayoutComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

@@ -1,3 +1,18 @@
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="w3-row-padding">
+    <div class="w3-half">
+      <label class="w3-label">Fecha desde:</label>
+      <input class="w3-input w3-border" type="search" placeholder="Año/mes/dia">
+    </div>
+    <div class="w3-half">
+      <label class="w3-label">Fecha hasta:</label>
+      <input class="w3-input w3-border" type="search" placeholder="Año/mes/dia">
+    </div>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -22,8 +37,9 @@
 </table>
 
 <div class="pagination-container">
-  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    <pagination-controls class="pagination" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="currentPage = $event"></pagination-controls>
 </div>
+  
 
 
 
