@@ -40,5 +40,4 @@ export default class LoginComponent {
       alert('Por favor, completa todos los campos correctamente.');
     }
   }
-
 }
