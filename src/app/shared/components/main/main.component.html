@@ -1,46 +1,69 @@
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=rule_settings" />
 
-<div class="w3-row-padding">
-    <div class="w3-half">
-      <label class="w3-label">Fecha desde:</label>
-      <input class="w3-input w3-border" type="search" placeholder="Año/mes/dia">
-    </div>
-    <div class="w3-half">
-      <label class="w3-label">Fecha hasta:</label>
-      <input class="w3-input w3-border" type="search" placeholder="Año/mes/dia">
-    </div>
+<div>
+  <label class="filter-label" for="fechaDesde">Fecha Desde</label>
+  <input
+  
+    id="fechaDesde"
+    type="text"
+    [(ngModel)]="wiso012LocalDateTime"
+    class="filter_input"
+    placeholder="Ingrese la fecha"
+  />
 </div>
+<div>
+  <label class="filter-label" for="fechaHasta">Fecha Hasta</label>
+  <input
+    id="fechaHasta"
+    type="text"
+    [(ngModel)]="wiso015SettlementDatel"
+    class="filter_input"
+    placeholder="YYYY-MM-DD HH:mm:ss"
+  />
+</div>
+
+<button class="button_filter" (click)="loadIsoDataByDateRange()">Filtrar</button>
+
+<div>
+  <span (click)="recargarIconoReload()" class="material-symbols-outlined">
+    rule_settings
+    </span>
+</div>
+
 
 <table>
   <thead>
     <tr>
       <th>Message Type</th>
+      <th>PAN</th>
       <th>Processing Code</th>
+      <th>Amount Transaction</th>
+      <th>TransDate time</th>
+      <th>Fee Amount</th>
+      <th>Settlement Date</th> 
       <th>Merchant Type</th>
       <th>Network ID</th>
-      <th>Transaction Date/Time</th>
-      <th>PAN</th>
+      <th>Bitmap</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let row of isoData | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
       <td>{{ row.wiso000MessageType }}</td>
+      <td>{{ row.wiso002Pan }}</td>
       <td>{{ row.wiso003ProcessingCode }}</td>
+      <td>{{ row.wiso004AmountTransaction }}</td>
+      <td>{{ row.wiso007TransDatetime }}</td>
+      <td>{{ row.wiso008BollFeeAmount }}</td>
+      <td>{{ row.wiso015SettlementDatel}}</td>
       <td>{{ row.wiso018MerchantType }}</td>
       <td>{{ row.wiso024NetworkId }}</td>
-      <td>{{ row.wiso007TransDatetime }}</td>
-      <td>{{ row.wiso002Pan }}</td>
+      <td>{{ row.wisoBitmap }}</td>
     </tr>
   </tbody>
 </table>
 
 <div class="pagination-container">
-    <pagination-controls class="pagination" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="currentPage = $event"></pagination-controls>
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
 </div>
-  
-
-
-
 
