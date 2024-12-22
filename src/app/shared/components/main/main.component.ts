@@ -1,11 +1,10 @@
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-//import { FitSwitchAPIService } from '../../../Servicios/fit-switch-api.service';
 import { NgFor } from '@angular/common';
 import { IsoService } from '../../../Servicios/ISO/iso.service';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-//import { FitSwitch } from '../../../Interface/InterfaceFitSwitch';
+
 
 @Component({
   selector: 'app-main',
@@ -19,6 +18,10 @@ export class MainComponent implements OnInit, OnDestroy {
   isoData: any[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 20;
+
+  // Variables para el filtro por rango de fechas
+  wiso012LocalDateTime: string = '';
+  wiso015SettlementDatel: string = '';
   private subscription: Subscription | null = null;
   row: any[] = [];
   constructor(private isoService: IsoService) {}
