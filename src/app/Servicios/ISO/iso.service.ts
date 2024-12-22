@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class IsoService {
-  private apiUrl = 'http://localhost:8080/api/iso8583';
+  //URL DE LA API DE SPRINGBOOT DE FITSWITCH
+  private apiUrl = 'http://localhost:8081/api/iso-8583';
 
   constructor(private http: HttpClient) {}
 

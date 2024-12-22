@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+//import { FitSwitchAPIService } from '../../../Servicios/fit-switch-api.service';
 import { NgFor } from '@angular/common';
 import { IsoService } from '../../../Servicios/ISO/iso.service';
 import { Subscription } from 'rxjs';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+//import { FitSwitch } from '../../../Interface/InterfaceFitSwitch';
 
 @Component({
   selector: 'app-main',
@@ -15,14 +17,13 @@ import { FormsModule } from '@angular/forms';
 
 export class MainComponent implements OnInit, OnDestroy {
   isoData: any[] = [];
-  currentPage: number = 1; 
-  itemsPerPage: number = 30; 
-  wiso012LocalDateTime: string | null = null; 
-  wiso015SettlementDatel: string | null = null; 
+  currentPage: number = 1;
+  itemsPerPage: number = 20;
   private subscription: Subscription | null = null;
   row: any[] = [];
   constructor(private isoService: IsoService) {}
-  
+
+
   ngOnInit(): void {
     this.loadIsoData();
   }
