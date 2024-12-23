@@ -154,9 +154,6 @@ table {
     background-color: #bb270d;
   }
 
-
-
-  
   .material-symbols-outlined {
     color: #ffffff;
     margin-right: 10px;
@@ -173,3 +170,21 @@ table {
     color: #cf7b0e;
   }
   
+  .hscroll {
+    overflow-x: auto; 
+  }
+
+  .button_semaforo{
+    background-color: #49e223;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }

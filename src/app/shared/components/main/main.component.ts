@@ -4,12 +4,13 @@ import { NgFor } from '@angular/common';
 import { IsoService } from '../../../Servicios/ISO/iso.service';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [NgFor, NgxPaginationModule, FormsModule],
+  imports: [NgFor, NgxPaginationModule, FormsModule, CommonModule],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
@@ -17,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class MainComponent implements OnInit, OnDestroy {
   isoData: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 20;
+  itemsPerPage: number = 40;
 
   // Variables para el filtro por rango de fechas
   wiso012LocalDateTime: string = '';
@@ -43,6 +44,7 @@ export class MainComponent implements OnInit, OnDestroy {
     });
   }
     
+  
   // Cargar datos filtrados por rango de fechas
   loadIsoDataByDateRange(): void {
     if (this.wiso012LocalDateTime && this.wiso015SettlementDatel) {
@@ -88,24 +90,15 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
 
-  ///AQUI QUIERO QUE LE DES LA FUNCIONALIDAD AL ICONO DE RECARGAR EL LISTADO DE LA TABLA DE DATOS DE ISO 8583 CON EL BOTON DE RELOAD DE LA PAGINA EN EL HTML 
 
-recargarIconoReload = () => {
-  this.isoService.getIsoData().subscribe({
-    next: (data) => {
-      this.isoData = data;
-    },
-    error: (err) => {
-      console.error('Error fetching ISO data:', err);
-    },
-  });
-}
-
-
-
+  
 
 
 }
+
+
+
+
 
 
 
