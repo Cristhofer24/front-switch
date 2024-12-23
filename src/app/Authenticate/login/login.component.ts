@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FitcService } from '../../Servicios/FITC/fitc.service';
@@ -15,26 +15,38 @@ export default class LoginComponent {
   cUsuario: string = '';
   password: string = '';
 
-  constructor(private apiAuth: FitcService) {}
+  constructor(private apiAuth: FitcService, private router: Router) {}
 
+  // Método para manejar el login
   onLogin(form: any): void {
     if (form.valid) {
       console.log('Datos del formulario:', form.value); // Verifica los datos enviados
 
       // Verificar si cUsuario y password tienen valores
-      console.log('cUsuario:', form.value.cUsuario); // Asegúrate de que no sea undefined
+      console.log('cUsuario:', form.value.cUsuario);
       console.log('password:', form.value.password);
 
+      // Llamamos al servicio para realizar el login
       this.apiAuth.login(form.value.cUsuario, form.value.password).subscribe(
         (response) => {
           console.log('Login exitoso:', response);
-          // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
+          if (response && response.message === 'Login exitoso') {
+            this.router.navigate(['/dashboard']);  // Redirige después del login exitoso
+          } else {
+            console.error('Error: Credenciales inválidas');
+            alert('Credenciales inválidas');
+          }
         },
         (error) => {
           console.error('Error en el login:', error);
-          alert('Hubo un problema con el login. Revisa tus credenciales.');
+          if (error.status === 401) {
+            alert('Credenciales inválidas');
+          } else {
+            alert('Hubo un problema con el login. Revisa tus credenciales.');
+          }
         }
       );
+
     } else {
       console.log('Formulario inválido');
       alert('Por favor, completa todos los campos correctamente.');
