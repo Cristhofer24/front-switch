@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IsoService {
   //URL DE LA API DE SPRINGBOOT DE FITSWITCH
@@ -12,7 +12,14 @@ export class IsoService {
   constructor(private http: HttpClient) {}
 
   getIsoData(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl); // Retorna los datos desde la API
+    return this.http.get<any[]>(this.apiUrl);
   }
 
+  // Método para obtener datos filtrados usando los nombres exactos de los campos
+  getIsoDataByDateRange(WISO_012_LOCALDATETIME: string, WISO_015_SETTLEMENTDATEL: string): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiUrl}/filtrar`,
+      { params: { WISO_012_LOCALDATETIME, WISO_015_SETTLEMENTDATEL } }
+    );
+  }  
 }
