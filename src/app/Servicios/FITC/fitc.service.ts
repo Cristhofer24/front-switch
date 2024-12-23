@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import * as crypto from 'crypto-js';
+import * as CryptoJS from 'crypto-js';  // Asegúrate de que esta importación sea correcta
 
 @Injectable({
   providedIn: 'root'
@@ -11,18 +11,22 @@ export class FitcService {
 
   constructor(private http: HttpClient) { }
 
-  login(cusuario: string, password: string): Observable<any> {
-    // Construimos el cuerpo de la solicitud con los datos correctos
-    const body = { cUsuario: cusuario, password: password };  // Asegúrate de usar "cUsuario" en vez de "cusuario"
+  login(cUsuario: string, password: string): Observable<any> {
+    // Encriptamos la contraseña usando MD5
+    // const encryptedPassword = CryptoJS.MD5(password).toString(CryptoJS.enc.Base64); // Usamos Base64 para una representación más común
 
-    console.log('Body enviado al servidor:', body); // Para verificar si los datos están correctos
+    // Construimos el cuerpo de la solicitud con la contraseña encriptada
+    const body = { cUsuario: cUsuario, password: password };
 
-    // No es necesario agregar encabezado 'Authorization' en este caso
+    console.log('Body enviado al servidor:', body);  // Verifica si los datos son correctos
+
+    // Definimos los encabezados para especificar el tipo de contenido JSON
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'  // Especificamos que estamos enviando JSON
+      'Content-Type': 'application/json',  // Indicar que estamos enviando JSON
+      'Accept': 'application/json'          // Asegura que también estamos esperando una respuesta JSON
     });
 
-    // Enviamos la solicitud POST al backend con el cuerpo y los encabezados
+    // Enviamos la solicitud POST al backend
     return this.http.post(this.UrlApiLogin, body, { headers: headers });
   }
 }
