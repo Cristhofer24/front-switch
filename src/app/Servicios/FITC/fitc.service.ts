@@ -12,18 +12,15 @@ export class FitcService {
   constructor(private http: HttpClient) { }
 
   login(cUsuario: string, password: string): Observable<any> {
-    // Encriptamos la contraseña usando MD5
-    // const encryptedPassword = CryptoJS.MD5(password).toString(CryptoJS.enc.Base64); // Usamos Base64 para una representación más común
 
-    // Construimos el cuerpo de la solicitud con la contraseña encriptada
     const body = { cUsuario: cUsuario, password: password };
 
-    console.log('Body enviado al servidor:', body);  // Verifica si los datos son correctos
+    console.log('Body enviado al servidor:', body);
 
-    // Definimos los encabezados para especificar el tipo de contenido JSON
+
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',  // Indicar que estamos enviando JSON
-      'Accept': 'application/json'          // Asegura que también estamos esperando una respuesta JSON
+      'Content-Type': 'application/json',  
+      'Accept': 'application/json'
     });
 
     // Enviamos la solicitud POST al backend

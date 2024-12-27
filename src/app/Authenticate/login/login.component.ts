@@ -15,6 +15,7 @@ export default class LoginComponent {
   cUsuario: string = '';
   password: string = '';
 
+
   constructor(private apiAuth: FitcService, private router: Router) {}
 
   // Método para manejar el login
@@ -30,8 +31,14 @@ export default class LoginComponent {
       this.apiAuth.login(form.value.cUsuario, form.value.password).subscribe(
         (response) => {
           console.log('Login exitoso:', response);
-          if (response && response.message === 'Login exitoso') {
-            this.router.navigate(['/dashboard']);  // Redirige después del login exitoso
+          if (response  && response.message === 'Login exitoso') {
+
+            localStorage.setItem('userName', form.value.cUsuario);
+            localStorage.setItem('userRole',response.role);
+
+            this.router.navigate(['/dashboard']);
+
+             // Redirige después del login exitoso
           } else {
             console.error('Error: Credenciales inválidas');
             alert('Credenciales inválidas');
