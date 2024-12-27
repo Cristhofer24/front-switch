@@ -23,10 +23,6 @@ openUserOption(){
   this.userOption = !this.userOption;
 }
 
-logout(): void {
-  localStorage.removeItem('userName');
-  localStorage.removeItem('userRole');
-  this.router.navigate(['/login']);
-}
+
 
 }
