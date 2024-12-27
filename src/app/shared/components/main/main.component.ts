@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-main',
   standalone: true,
@@ -14,7 +13,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-
 export class MainComponent implements OnInit, OnDestroy {
   isoData: any[] = [];
   currentPage: number = 1;
@@ -23,10 +21,10 @@ export class MainComponent implements OnInit, OnDestroy {
   // Variables para el filtro por rango de fechas
   wiso012LocalDateTime: string = '';
   wiso015SettlementDatel: string = '';
-  private subscription: Subscription | null = null;
-  row: any[] = [];
-  constructor(private isoService: IsoService) {}
 
+  private subscription: Subscription | null = null;
+
+  constructor(private isoService: IsoService) {}
 
   ngOnInit(): void {
     this.loadIsoData();
@@ -43,17 +41,16 @@ export class MainComponent implements OnInit, OnDestroy {
       },
     });
   }
-    
-  
+
   // Cargar datos filtrados por rango de fechas
   loadIsoDataByDateRange(): void {
     if (this.wiso012LocalDateTime && this.wiso015SettlementDatel) {
       const formattedFromDate = this.wiso012LocalDateTime.trim();
       const formattedToDate = this.wiso015SettlementDatel.trim();
-      
+
       const isValidFromDate = this.validateDate(formattedFromDate);
       const isValidToDate = this.validateDate(formattedToDate);
-      
+
       if (isValidFromDate && isValidToDate) {
         this.isoService
           .getIsoDataByDateRange(formattedFromDate, formattedToDate)
@@ -73,8 +70,7 @@ export class MainComponent implements OnInit, OnDestroy {
     }
   }
 
-
-  // Validar formato de fecha (YYYY-MM-DD)
+  // Validar formato de fecha (YYYY-MM-DD HH:mm:ss)
   validateDate(date: string): boolean {
     const dateRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/; // Formato: YYYY-MM-DD HH:mm:ss
     if (!dateRegex.test(date)) {
@@ -83,24 +79,8 @@ export class MainComponent implements OnInit, OnDestroy {
     }
     return true;
   }
-  
-  
+
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
-
-
-
-  
-
-
 }
-
-
-
-
-
-
-
-
-

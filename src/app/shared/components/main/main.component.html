@@ -28,50 +28,55 @@
 
 <div class="hscroll">
 <table width="100%"  cellspacing="0" cellpadding="6"> 
-  <thead>
-    <tr>
-      <th>Tipo de mensaje</th>  <!--Campo WISO_000_MESSAGE_TYPE---->
-      <th>PAN</th>   <!--- Campo WISO_002_PAN--->
-      <th>Código de procesamiento</th>  <!--Campo WISO_003_PROCESSING_CODE---->
-      <th>Importe de la transacción</th>  <!--Campo WISO_004_AMOUNT_TRANSACTION---->
-      <th>Hora de transfecha</th>    <!--Campo WISO_007_TRANSDATETIME---->
-      <th>Monto de la tarifa</th>  <!--Campo WISO_008_BILLFEEAMOUNT---->
-      <th>Fecha contable</th>  <!--Campo WISO_015_SETTLEMENT_DATE---->
-      <th>N° de autorización</th>  <!--Campo WISO_038_AUTORIZATION_NUMBER---->
-      <th>Cód. de respuesta</th> <!--Campo WISO_039_RESPONSE_CODE---->
-      <th>Texto de la respuesta</th>  <!--Campo WISO_039P_RESPONSE_DETAIL---->
-      <th>N° de mensaje FitBank</th>  <!--Campo WISO_044_ADDRESP_DATA---->
-      <th>Cuenta origen</th>  <!--Campo WISO_102_ACCOUNT_ID1---->
-      <th>Cuenta destino</th>  <!--Campo WISO_103_ACCOUNT_ID2---->
-      <th>Merchant Type</th>  <!--Campo WISO_018_MERCHANT_TYPE---->
-      <th>Id de red</th>    <!--Campo WISO_024_NETWORK_ID---->
-      <th>Bitmap</th>    <!--Campo WISO_BITMAP---->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let row of isoData | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }" 
-       >
-      <td>{{ row.wiso000MessageType }}</td>
-      <td>{{ row.wiso002Pan }}</td>
-      <td>{{ row.wiso003ProcessingCode }}</td>
-      <td>{{ row.wiso004AmountTransaction }}</td>
-      <td>{{ row.wiso007TransDatetime }}</td>
-      <td>{{ row.wiso008BollFeeAmount }}</td>
-      <td>{{ row.wiso015SettlementDatel}}</td>
-      <td>{{row.wiso038AutorizationNumber}}</td>
-      <td><button class="button_semaforo">{{row.wiso039ResponseCode}}</button></td>   <!--En este campo se aplicara el semáforo de la respuesta---->
-      <td>{{row.wiso039pRespondeDetail}}</td>
-      <td>{{row.wiso044AddrespData}}</td>
-      <td>{{row.wiso102AccountId1}}</td>
-      <td>{{ row.wiso103AccountId2 }}</td>
-      <td>{{ row.wiso018MerchantType }}</td>
-      <td>{{ row.wiso024NetworkId }}</td>
-      <td>{{ row.wisoBitmap }}</td>
-    </tr>
-  </tbody>
-</table>
+    <thead>
+      <tr>
+        <th>Tipo de mensaje</th>
+        <th>PAN</th>
+        <th>Código de procesamiento</th>
+        <th>Importe de la transacción</th>
+        <th>Hora de transfecha</th>
+        <th>Monto de la tarifa</th>
+        <th>Fecha contable</th>
+        <th>N° de autorización</th>
+        <th>Cód. de respuesta</th>
+        <th>Texto de la respuesta</th>
+        <th>N° de mensaje FitBank</th>
+        <th>Cuenta origen</th>
+        <th>Cuenta destino</th>
+        <th>Merchant Type</th>
+        <th>Id de red</th>
+        <th>Bitmap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let row of isoData| paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+        <td>{{ row.wiso000MessageType }}</td>
+        <td>{{ row.wiso002Pan }}</td>
+        <td>{{ row.wiso003ProcessingCode }}</td>
+        <td>{{ row.wiso004AmountTransaction }}</td>
+        <td>{{ row.wiso007TransDatetime }}</td>
+        <td>{{ row.wiso008BollFeeAmount }}</td>
+        <td>{{ row.wiso015SettlementDatel }}</td>
+        <td>{{ row.wiso038AutorizationNumber}}</td>
+        <td>
+          <button
+            [class.green-button]="row.wiso039ResponseCode === '000'"
+            [class.red-button]="row.wiso039ResponseCode !== '000'"
+          >
+            {{ row.wiso039ResponseCode }}
+          </button>
+        </td>
+        <td>{{ row.wiso039pRespondeDetail }}</td>
+        <td>{{ row.wiso044AddrespData }}</td>
+        <td>{{ row.wiso102AccountId1 }}</td>
+        <td>{{ row.wiso103AccountId2 }}</td>
+        <td>{{ row.wiso018MerchantType }}</td>
+        <td>{{ row.wiso024NetworkId }}</td>
+        <td>{{ row.wisoBitmap }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
 
 <div class="pagination-container">
   <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>

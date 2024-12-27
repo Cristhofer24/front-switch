@@ -172,19 +172,44 @@ table {
   
   .hscroll {
     overflow-x: auto; 
+    border-radius: 10px;
+   
   }
 
-  .button_semaforo{
-    background-color: #49e223;
+
+
+
+  
+
+
+
+
+
+
+
+  /////ESTILOS  DE BOTONES DEL SEMAFORO QUE VAN EN LA TABLA, ESPECIFICAMENTE DEL 
+  /// CAMPO "Cód. de respuesta" 
+  /// 
+  .green-button {
+    background-color: green;
+    color: white;
     border: none;
-    color: rgb(0, 0, 0);
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 5px;
   }
+  
+  .red-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 80px;
+    height: 55px;
+    width: 55px;
+    font-size: 12px;
+    margin: 5px;
+    text-align: center;
+
+  }
+  
