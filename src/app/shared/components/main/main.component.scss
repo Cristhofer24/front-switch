@@ -14,7 +14,7 @@ table {
   thead {
     background-color: #44607e;
     color: #fff;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     letter-spacing: 0.03em;
     font-family: monospace;
     font-size: 15px;
@@ -28,7 +28,6 @@ table {
   
   /* Filas del cuerpo */
   tbody tr {
-    //border-bottom: 1px solid #d60a0a;
     background-color: #a29ce0;
     transition: background-color 0.3s ease;
     font-family: monospace;
@@ -38,7 +37,7 @@ table {
   }
   
   tbody tr:nth-child(even) {
-    background-color: #9c9696; /* Alternar color para filas pares */
+    background-color: #9c9696; 
   }
   
   /* Efecto hover */
@@ -51,13 +50,6 @@ table {
     padding: 10px 15px;
     border: 1px solid #000000;
   }
-  
-  /* Resaltar texto de la primera celda de la tabla 
-  tbody td:first-child {
-    font-weight: bold;
-    color: #000000;
-  }*/
-
   
   /* Responsivo */
   @media (max-width: 768px) {
@@ -72,48 +64,43 @@ table {
   }
 
 
-  
+
+  ///Estilos de la paginación de la tabla 
   .pagination-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-  }
-  
+    font-family: Arial, sans-serif;
+    background-color: #9fa1a7;
+    padding: 5px, 5px, 5px, 5px; 
+    color: #000000;
+  } 
+   
   .pagination {
     ul {
       display: flex;
       list-style-type: none;
       padding: 0;
-  
+      margin: 0;
+      
       li {
-        margin: 0 5px;
-  
+        margin: 0 8px;
+      
         a {
           text-decoration: none;
-          padding: 10px 15px;
-          border: 1px solid #007bff;
-          border-radius: 20px;
-          color: #007bff;
-          background-color: #ffffff; 
-          transition: background-color 0.3s, color 0.3s;
+          padding: 12px 18px; 
+          border-radius: 8px;
+          color: #000000;
+          background-color: #4CAF50; 
+          border: none; 
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+          transition: background-color 0.3s ease, transform 0.2s;
   
-          &:hover {
-            background-color: #007bff;
-            color: #ffffff;
-          }
-  
-          &.current {
-            background-color: #0056b3;
-            color: #ffffff;
-          }
         }
       }
     }
   }
-
-
-
-
+  
   ////NUEVOS ESTILOS DE LOS INPUTS DE BUSQUEDA Y FILTROS 
   /// Estilos de los inputs
   .filter-label{
@@ -154,21 +141,9 @@ table {
     background-color: #bb270d;
   }
 
-  .material-symbols-outlined {
-    color: #ffffff;
-    margin-right: 10px;
-    padding: 10px;
-    float: right;
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 700,
-    'GRAD' 0,
-    'opsz' 24,
-  }
 
-  .material-symbols-outlined:hover {
-    color: #cf7b0e;
-  }
+
+  ////Estilos de la tabla, en la parte de abajo de la pantalla principal 
   
   .hscroll {
     overflow-x: auto; 
@@ -179,7 +154,7 @@ table {
 
   /////ESTILOS  DE BOTONES DEL SEMAFORO QUE VAN EN LA TABLA, ESPECIFICAMENTE DEL 
   /// CAMPO "Cód. de respuesta" 
-  /// 
+  
   .green-button {
     background-color: green;
     color: white;

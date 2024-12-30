@@ -29,8 +29,7 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loadIsoData();
   }
-
-  // Cargar todos los datos
+  
   loadIsoData(): void {
     this.subscription = this.isoService.getIsoData().subscribe({
       next: (data) => {
@@ -41,7 +40,7 @@ export class MainComponent implements OnInit, OnDestroy {
       },
     });
   }
-
+  
   // Cargar datos filtrados por rango de fechas
   loadIsoDataByDateRange(): void {
     if (this.wiso012LocalDateTime && this.wiso015SettlementDatel) {
