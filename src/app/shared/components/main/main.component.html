@@ -4,7 +4,7 @@
 <div>
   <label class="filter-label" for="fechaDesde">Fecha Desde</label>
   <input
-  
+
     id="fechaDesde"
     type="text"
     [(ngModel)]="wiso012LocalDateTime"
@@ -27,7 +27,7 @@
 
 
 <div class="hscroll">
-<table width="100%"  cellspacing="0" cellpadding="6"> 
+<table width="100%"  cellspacing="0" cellpadding="6">
     <thead>
       <tr>
         <th>Tipo de mensaje</th>
@@ -46,6 +46,9 @@
         <th>Merchant Type</th>
         <th>Id de red</th>
         <th>Bitmap</th>
+        <th>Extend Data</th>
+
+
       </tr>
     </thead>
     <tbody>
@@ -58,6 +61,9 @@
         <td>{{ row.wiso008BollFeeAmount }}</td>
         <td>{{ row.wiso015SettlementDatel }}</td>
         <td>{{ row.wiso038AutorizationNumber}}</td>
+        
+
+
         <td>
           <button
             [class.green-button]="row.wiso039ResponseCode === '000'"
@@ -73,6 +79,7 @@
         <td>{{ row.wiso018MerchantType }}</td>
         <td>{{ row.wiso024NetworkId }}</td>
         <td>{{ row.wisoBitmap }}</td>
+
       </tr>
     </tbody>
   </table>

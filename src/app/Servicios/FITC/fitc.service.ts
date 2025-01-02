@@ -15,11 +15,8 @@ export class FitcService {
 
     const body = { cUsuario: cUsuario, password: password };
 
-    console.log('Body enviado al servidor:', body);
-
-
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',  
+      'Content-Type': 'application/json',
       'Accept': 'application/json'
     });
 
