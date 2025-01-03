@@ -21,12 +21,6 @@ export default class LoginComponent {
   // Método para manejar el login
   onLogin(form: any): void {
     if (form.valid) {
-      console.log('Datos del formulario:', form.value); // Verifica los datos enviados
-
-      // Verificar si cUsuario y password tienen valores
-      console.log('cUsuario:', form.value.cUsuario);
-      console.log('password:', form.value.password);
-
       // Llamamos al servicio para realizar el login
       this.apiAuth.login(form.value.cUsuario, form.value.password).subscribe(
         (response) => {
