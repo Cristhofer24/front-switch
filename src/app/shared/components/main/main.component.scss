@@ -1,180 +1,192 @@
+/* ESTILOS GLOBALES DE LA PAGINA */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* ESTILOS DEL CONTENEDOR DE FILTROS DE FECHAS Y BOTONES */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfe3e8;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.filter-input {
+  padding: 10px 15px;
+  border: 1px solid #161718;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #d0d7df;
+  transition: border-color 0.3s;
+  width: 220px;
+}
+
+.filter-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.button-filter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #1d19fd;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.button-filter:hover {
+  background-color: #0056b3;
+}
+
+/* Media Query para diseño responsive */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-input,
+  .button-filter {
+    max-width: 100%;
+  }
+}
+
+/* ESTILOS GENERALES DE LA TABLA PRINCIPAL */
+.table-container {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 15px 10px;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.modern-table th {
+  background-color: #1d19fd;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.modern-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.modern-table tbody tr:hover {
+  background-color: #99aec0;
+  cursor: pointer;
+}
+
+/*ESTILOS DE CAMPO LLAMADO "Cod. de respuesta" EN LA TABLA SOBRE EL SEMAFORO */
+.response-code-button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.green-button {
+  background-color: #18a73a;
+  height: 50px;
+  width: 55px;
+}
+
+.red-button {
+  background-color: #d82234;
+  font-size: 12px;
+  text-align: center;
+  height: 55px;
+  width: 70px;
+}
 
 
-/* Tabla contenedor */
-table {
+
+/* ESTILOS DE LA PAGINACIÓN */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.custom-pagination ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-pagination li {
+  display: inline-block;
+}
+
+.custom-pagination a {
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #1d19fd;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: bold;
+}
+
+.custom-pagination a:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.custom-pagination .current {
+  background-color: #0056b3;
+  pointer-events: none;
+}
+
+.custom-pagination .disabled {
+  background-color: #d6d8db;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .custom-pagination ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .custom-pagination a {
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Estilo del encabezado */
-  thead {
-    background-color: #44607e;
-    color: #fff;
-    /*text-transform: uppercase;*/
-    letter-spacing: 0.03em;
-    font-family: monospace;
-    font-size: 15px;
     text-align: center;
   }
-  
-  thead th {
-    padding: 12px 15px;
-    border: 1px solid #ffffff;
-  }
-  
-  /* Filas del cuerpo */
-  tbody tr {
-    background-color: #a29ce0;
-    transition: background-color 0.3s ease;
-    font-family: monospace;
-    font-size: 15px;
-    text-align: center;
-    
-  }
-  
-  tbody tr:nth-child(even) {
-    background-color: #9c9696; 
-  }
-  
-  /* Efecto hover */
-  tbody tr:hover {
-    background-color: #e9ecef;
-  }
-  
-  /* Celdas del cuerpo */
-  tbody td {
-    padding: 10px 15px;
-    border: 1px solid #000000;
-  }
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    table {
-      font-size: 14px;
-    }
-  
-    thead th,
-    tbody td {
-      padding: 8px 10px;
-    }
-  }
-
-
-
-  ///Estilos de la paginación de la tabla 
-  .pagination-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #9fa1a7;
-    padding: 5px, 5px, 5px, 5px; 
-    color: #000000;
-  } 
-   
-  .pagination {
-    ul {
-      display: flex;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      
-      li {
-        margin: 0 8px;
-      
-        a {
-          text-decoration: none;
-          padding: 12px 18px; 
-          border-radius: 8px;
-          color: #000000;
-          background-color: #4CAF50; 
-          border: none; 
-          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
-          transition: background-color 0.3s ease, transform 0.2s;
-  
-        }
-      }
-    }
-  }
-  
-  ////NUEVOS ESTILOS DE LOS INPUTS DE BUSQUEDA Y FILTROS 
-  /// Estilos de los inputs
-  .filter-label{
-    outline: none;
-    color: #ffffff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .filter_input{
-    outline: none;
-    color: #353434;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #000000;
-  }
-
-  .button_filter{
-    background-color: #44607e;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-  }
-
-  .button_filter:hover {
-    background-color: #bb270d;
-  }
-
-
-
-  ////Estilos de la tabla, en la parte de abajo de la pantalla principal 
-  
-  .hscroll {
-    overflow-x: auto; 
-    border-radius: 10px;
-   
-  }
-
-
-  /////ESTILOS  DE BOTONES DEL SEMAFORO QUE VAN EN LA TABLA, ESPECIFICAMENTE DEL 
-  /// CAMPO "Cód. de respuesta" 
-  
-  .green-button {
-    background-color: green;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 50px;
-    margin: 5px;
-  }
-  
-  .red-button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 80px;
-    height: 55px;
-    width: 55px;
-    font-size: 12px;
-    margin: 5px;
-    text-align: center;
-
-  }
-  
+}
