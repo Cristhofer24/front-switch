@@ -1,41 +1,38 @@
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=rule_settings" />
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=rule_settings" />
 
 <div>
   <label class="filter-label" for="fechaDesde">Fecha Desde</label>
-  <input
-
-    id="fechaDesde"
-    type="text"
-    [(ngModel)]="wiso012LocalDateTime"
-    class="filter_input"
-    placeholder="Ingrese la fecha"
-  />
+  <input id="fechaDesde" type="text" [(ngModel)]="wiso012LocalDateTime" class="filter_input"
+    placeholder="Ingrese la fecha" />
 </div>
 <div>
   <label class="filter-label" for="fechaHasta">Fecha Hasta</label>
-  <input
-    id="fechaHasta"
-    type="text"
-    [(ngModel)]="wiso015SettlementDatel"
-    class="filter_input"
-    placeholder="YYYY-MM-DD HH:mm:ss"
-  />
+  <input id="fechaHasta" type="text" [(ngModel)]="wiso015SettlementDatel" class="filter_input"
+    placeholder="YYYY-MM-DD HH:mm:ss" />
 </div>
 
 <button class="button_filter" (click)="loadIsoDataByDateRange()">Filtrar</button>
 
 
 <div class="hscroll">
-<table width="100%"  cellspacing="0" cellpadding="6">
+  <table width="100%" cellspacing="0" cellpadding="6">
     <thead>
       <tr>
+        <!---Campos iniciales-->
         <th>Tipo de mensaje</th>
-        <th>PAN</th>
         <th>Código de procesamiento</th>
-        <th>Importe de la transacción</th>
-        <th>Hora de transfecha</th>
-        <th>Monto de la tarifa</th>
+        <th>Canal</th>
+        <th>Red</th>
+        <th>TRANSDATETIME</th>
+        <th>PAN</th>
+        <!---Campos Adicionales-->
+
+        <th>Monto de la transacción</th>
+        <th>Comisión</th>
+        <td>SYSAUDITNUMBER</td>
+        <td>LOCALDATETIME</td>
+        <td>LOCALDATE</td>
         <th>Fecha contable</th>
         <th>N° de autorización</th>
         <th>Cód. de respuesta</th>
@@ -43,42 +40,133 @@
         <th>N° de mensaje FitBank</th>
         <th>Cuenta origen</th>
         <th>Cuenta destino</th>
-        <th>Merchant Type</th>
-        <th>Id de red</th>
-        <th>Bitmap</th>
-        <th>Extend Data</th>
-
-
+        <th>Observar XML</th>
+        <!-- <th>Observar XML</th> -->
+        <th>Metodo</th>
+        <th>Tiempo de la transacción</th>
+        <th>Base de datos</th>
+        <th>Autorización</th>
+        <th>Tipo de Origen</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor=" let row of isoData| paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+        <!---Campos iniciales-->
         <td>{{ row.wiso000MessageType }}</td>
-        <td>{{ row.wiso002Pan }}</td>
         <td>{{ row.wiso003ProcessingCode }}</td>
-        <td>{{ row.wiso004AmountTransaction }}</td>
+        <td>{{ row.wiso018MerchantType }}</td>
+        <td>{{ row.wiso024NetworkId}}</td>
         <td>{{ row.wiso007TransDatetime }}</td>
+        <td>{{ row.wiso002Pan }}</td>
+        <!---Campos Restantes-->
+
+        <td>{{ row.wiso004AmountTransaction }}</td>
         <td>{{ row.wiso008BollFeeAmount }}</td>
+        <td>{{ row.wiso011SysAuditNumber }}</td>
+        <!---Campos que se usaran para filtrar por fechas-->
+        <td>{{ row.wiso012LocalDateTime }}</td>
+        <td>{{ row.getWiso013LocalDate }}</td>
+        <!---Campos Restantes-->
         <td>{{ row.wiso015SettlementDatel }}</td>
         <td>{{ row.wiso038AutorizationNumber}}</td>
-        
-
-
+        <!---Semaforo de colores-->
         <td>
-          <button
-            [class.green-button]="row.wiso039ResponseCode === '000'"
-            [class.red-button]="row.wiso039ResponseCode !== '000'"
-          >
+          <button [class.green-button]="row.wiso039ResponseCode === '000'"
+            [class.red-button]="row.wiso039ResponseCode !== '000'">
             {{ row.wiso039ResponseCode }}
           </button>
         </td>
+
         <td>{{ row.wiso039pRespondeDetail }}</td>
         <td>{{ row.wiso044AddrespData }}</td>
         <td>{{ row.wiso102AccountId1 }}</td>
         <td>{{ row.wiso103AccountId2 }}</td>
-        <td>{{ row.wiso018MerchantType }}</td>
-        <td>{{ row.wiso024NetworkId }}</td>
+        <!---Botones de XMl -->
+        <td>
+          <button
+            (click)="modalOpen(row.wiso000MessageType)"
+            class="block w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Ver XML
+          </button>
+        </td>
+
+        <!-- Modal -->
+        <div
+          *ngIf="selectedRow"
+          id="medium-modal"
+          class="fixed inset-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto flex justify-center items-center">
+          <div class="relative w-full max-w-2xl max-h-screen overflow-y-auto">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  XML Details
+                </h3>
+                <button
+                  (click)="modalClose()"
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="static-modal">
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14">
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <div
+                class="p-4 md:p-5 space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+                <p
+                  class="text-base leading-relaxed text-gray-500 dark:text-gray-400 break-words">
+                  {{ displayedXml }}
+                </p>
+                <button
+                  *ngIf="selectedRow?.wiso114ExtendedData.length > displayedXml.length"
+                  (click)="loadMoreXml()"
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Cargar más
+                </button>
+              </div>
+              <!-- Modal footer -->
+              <div
+                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button
+                  (click)="modalClose()"
+                  type="button"
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <td><button class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Ver XML</button></td> -->
         <td>{{ row.wisoBitmap }}</td>
+        <td>{{ row.wisoTempoTrxValue}}</td>
+        <td>{{ row.wisoTempoBddValue }}</td>
+        <td>{{ row.wisoTempoAutValue }}</td>
+        <td>{{ row.wisoIp }}</td>
 
       </tr>
     </tbody>

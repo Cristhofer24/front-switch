@@ -18,6 +18,10 @@ export class MainComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
   itemsPerPage: number = 40;
 
+  selectedRow: any = null; // Almacena los datos de la fila seleccionada para el modal
+  displayedXml: string = ''; // Almacena el XML mostrado en el modal
+  loading: boolean = false;
+
   // Variables para el filtro por rango de fechas
   wiso012LocalDateTime: string = '';
   wiso015SettlementDatel: string = '';
@@ -29,7 +33,7 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loadIsoData();
   }
-  
+
   loadIsoData(): void {
     this.subscription = this.isoService.getIsoData().subscribe({
       next: (data) => {
@@ -40,7 +44,7 @@ export class MainComponent implements OnInit, OnDestroy {
       },
     });
   }
-  
+
   // Cargar datos filtrados por rango de fechas
   loadIsoDataByDateRange(): void {
     if (this.wiso012LocalDateTime && this.wiso015SettlementDatel) {
@@ -82,4 +86,33 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
+
+///Abrir y cerrar el modal
+modalOpen(primaryKey: string): void {
+  this.loading = true; // Inicia el indicador de carga
+  setTimeout(() => {
+    const foundRow = this.isoData.find((row) => row.wiso000MessageType === primaryKey);
+    if (foundRow) {
+      this.selectedRow = foundRow;
+      this.displayedXml = foundRow.wiso114ExtendedData.slice(0, 5000); // Muestra solo los primeros 5000 caracteres
+    }
+    this.loading = false; // Finaliza el indicador de carga
+  }, 100); // Simula un pequeño retardo para evitar congelamiento
+}
+
+// Mostrar más XML en el modal
+loadMoreXml(): void {
+  if (this.selectedRow && this.displayedXml.length < this.selectedRow.wiso114ExtendedData.length) {
+    const currentLength = this.displayedXml.length;
+    const nextChunk = this.selectedRow.wiso114ExtendedData.slice(currentLength, currentLength + 5000);
+    this.displayedXml += nextChunk;
+  }
+}
+
+// Cerrar modal
+modalClose(): void {
+  this.selectedRow = null;
+  this.displayedXml = '';
+}
+
 }
