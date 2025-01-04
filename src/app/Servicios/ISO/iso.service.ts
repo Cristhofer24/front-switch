@@ -16,10 +16,12 @@ export class IsoService {
   }
 
   // Método para obtener datos filtrados usando los nombres exactos de los campos
-  getIsoDataByDateRange(WISO_012_LOCALDATETIME: string, WISO_015_SETTLEMENTDATEL: string): Observable<any[]> {
+  getIsoDataByDateRange(WISO_012_LOCALDATETIME: string, WISO_013_LOCALDATE: string): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/filtrar`,
-      { params: { WISO_012_LOCALDATETIME, WISO_015_SETTLEMENTDATEL } }
+      { params: { WISO_012_LOCALDATETIME, WISO_013_LOCALDATE } }
     );
   }  
+
+
 }
